@@ -1,5 +1,8 @@
-{{ page.title }}
-{{ page.author }}
-{{ page.content }}
+{% extends 'base.html' %}
 
+{% block content %}
+    {{item.title}}
+    {{item.author}}
+    {{item.content}}
 
+{% endblock%}
