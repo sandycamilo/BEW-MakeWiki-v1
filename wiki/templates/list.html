@@ -1,0 +1,9 @@
+{% if wikipages %}
+    <ul>
+        {% for page in wikipages %}
+            {{ page.title }}
+            {{ page.author }}
+            {{ page.content }}
+        {% endfor %}
+    </ul>
+{% endif %}
