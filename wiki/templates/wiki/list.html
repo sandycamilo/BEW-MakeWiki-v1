@@ -1,0 +1,11 @@
+{% extends 'wiki/base.html' %} <!-- works as an import statement -->
+{% block content %}
+    {% if wikipages %}
+        <ul>
+            {% for page in wikipages %}
+                {{ page.title }}
+                {{ page.author }}
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endblock %}

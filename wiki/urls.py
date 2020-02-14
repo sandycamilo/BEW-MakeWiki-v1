@@ -1,6 +1,5 @@
 from django.urls import path
-from .views import PageList, PageDetailView
-from . import views
+from wiki.views import PageList, PageDetailView
 
 """
   CHALLENGES:
@@ -14,6 +13,6 @@ from . import views
   """
 
 urlpatterns = [
-  path('', views.PageList.as_view(), name='wiki-list-page'),
-  path('page/<str:slug>/', views.PageDetailView.as_view(), name='wiki-details-page'),
+  path('', PageList.as_view(), name='wiki-list-page'),
+  path('page/<slug>/', PageDetailView.as_view(), name='wiki-details-page'),
 ]
