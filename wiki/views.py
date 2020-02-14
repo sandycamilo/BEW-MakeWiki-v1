@@ -13,15 +13,15 @@ class PageList(ListView):
     """
     model = Page
 
-
     def get(self, request):
         """ Returns a list of wiki pages. """
         wikipages = Page.objects.all()
-        return render(request, 'list.html', {'wikipages': wikipages})
+        return render(request,"list.html", {"wikipages": wikipages})
 
 
 class PageDetailView(DetailView):
     """
+    Renders specific page from Page model.
     CHALLENGES:
       1. On GET, render a template named `page.html`.
       2. Replace this docstring with a description of what thos accomplishes.
@@ -41,8 +41,9 @@ class PageDetailView(DetailView):
 
     def get(self, request, slug):
         """ Returns a specific of wiki page by slug. """
-        page = get_object_or404(Page, pk=slug)
+        page = Page.objects.all()
         return render(request, "page.html", {"page": page})
 
     def post(self, request, slug):
-        pass
+       page = get_object_or_404(Page, pk=slug)
+       return render(request, 'page.html', {'page': page})
