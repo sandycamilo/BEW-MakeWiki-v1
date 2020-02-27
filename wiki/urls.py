@@ -14,5 +14,5 @@ from wiki.views import PageList, PageDetailView
 
 urlpatterns = [
   path('', PageList.as_view(), name='wiki-list-page'),
-  path('page/<slug>/', PageDetailView.as_view(), name='wiki-details-page'),
+  path('page/<str:slug>/', PageDetailView.as_view(), name='wiki-details-page'),
 ]

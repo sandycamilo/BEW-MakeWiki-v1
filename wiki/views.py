@@ -15,8 +15,8 @@ class PageList(ListView):
 
     def get(self, request):
         """ Returns a list of wiki pages. """
-        wikipages = Page.objects.all()
-        return render(request,"wiki/list.html", context={'wikipages': wikipages})
+        pages = self.get_queryset().all()
+        return render(request,"list.html", {'pages': pages})
 
 class PageDetailView(DetailView):
     """
@@ -40,8 +40,8 @@ class PageDetailView(DetailView):
 
     def get(self, request, slug):
         """ Returns a specific of wiki page by slug. """
-        page = get_object_or_404(Page, slug=slug)
-        return render(request, "wiki/page.html", context={'page':page})
+        page = get_object_or_404(Page, pk=slug)
+        return render(request, "page.html", {'page':page})
 
     def post(self, request, slug):
       pass

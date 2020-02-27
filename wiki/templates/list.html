@@ -1,0 +1,11 @@
+{% extends 'base.html' %} <!-- works as an import statement -->
+{% block content %}
+    {% if pages %}
+        
+            {% for page in pages %}
+                {{ page.content|truncatewords_html:30 }}
+                {{ page.modified|date:"SHORT_DATETIME_FORMAT" }} by {{ page.author.username }} <br>
+
+            {% endfor %}  
+    {% endif %}
+{% endblock %}
